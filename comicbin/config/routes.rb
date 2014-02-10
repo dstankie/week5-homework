@@ -3,6 +3,8 @@ Comicbin::Application.routes.draw do
   root "comics#index"
   get "/comics" => "comics#index"
   get "/comics/new" => "comics#new"
+  get "/comics/create" => "comics#create"
+  get "/comics/delete" => "comics#delete"
   get "/comics/:id" => "comics#show"
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -6,14 +6,33 @@ class ComicsController < ApplicationController
 	end
 
 	def new
+		@comic = Comic.new
 		render 'new'
 	end
 
 	def show
-    	comic_id = params["id"]
+    	comic_id = params[:id]
     	@comic = Comic.find_by :id => comic_id
-    	puts @comic.title
     	render 'show'
   	end
+
+  	def create
+  		@comic = Comic.new
+  		@comic.title = params[:title]
+  		@comic.description = params[:description]
+  		@comic.image_url = params[:image_url]
+  		@comic.save
+
+  		redirect_to '/comics/'+@comic.id.to_s
+  	end
+
+  	def delete
+    	comic_id = params[:id]
+    	@comic = Comic.find_by :id => comic_id
+  		@comic.destroy
+
+  		redirect_to '/comics'
+  	end
+
 
 end

@@ -2,34 +2,45 @@
   <div class='well'>
 
   <!-- WRITE THE CORRECT FORM HEADER AND BLOCK USING ERB -->
-    <% if @comic.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@comic.errors.count, "error") %> prohibited this comic from being saved:</h2>
+    <form action="/comics/create">
 
-        <ul>
-        <% @comic.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+      <% if @comic.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@comic.errors.count, "error") %> prohibited this comic from being saved:</h2>
 
-    <div class="form-group">
-      <!-- DISPLAY A TITLE LABEL -->
-      <!-- DISPLAY A TEXT FIELD AND ATTACH THE CLASS OF 'form-control' TO THIS FIELD -->
-    </div>
-    <div class="form-group">
-      <!-- DISPLAY A DESCRIPTION LABEL -->
-      <!-- DISPLAY A TEXT FIELD AND ATTACH THE CLASS OF 'form-control' TO THIS FIELD -->
-    </div>
-    <div class="form-group">
-      <!-- DISPLAY AN IMAGE LABEL -->
-      <!-- DISPLAY A TEXT FIELD ATTACH THE CLASS OF 'form-control' TO THIS FIELD -->
-    </div>
-    <div class="actions">
-      <!-- DISPLAY A SUBMIT BUTTON WITH A CLASS OF 'btn btn-primary' -->
-    </div>
+          <ul>
+          <% @comic.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <% end %>
+
+        <div class="form-group">
+          <!-- DISPLAY A TITLE LABEL -->
+          <!-- DISPLAY A TEXT FIELD AND ATTACH THE CLASS OF 'form-control' TO THIS FIELD -->
+          <label for="title">Title:</label>
+          <input type="text" name="title" class="form-control" id="title" placeholder="Enter title here">
+        </div>
+        <div class="form-group">
+          <!-- DISPLAY A DESCRIPTION LABEL -->
+          <!-- DISPLAY A TEXT FIELD AND ATTACH THE CLASS OF 'form-control' TO THIS FIELD -->
+          <label for="description">Description:</label>
+          <input type="text" name="description" class="form-control" id="description" placeholder="Enter description here">
+        </div>
+        <div class="form-group">
+          <!-- DISPLAY AN IMAGE LABEL -->
+          <!-- DISPLAY A TEXT FIELD ATTACH THE CLASS OF 'form-control' TO THIS FIELD -->
+          <label for="title">URL of Cover image:</label>
+          <input type="text" name="image_url" class="form-control" id="image_url" placeholder="Enter URL to a cover image">
+        </div>
+        <div class="actions">
+          <!-- DISPLAY A SUBMIT BUTTON WITH A CLASS OF 'btn btn-primary' -->
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </form>
+
   </div>
 </div>
