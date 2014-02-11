@@ -1,7 +1,7 @@
 class ComicsController < ApplicationController
 
 	def index
-    #order comics so that newly added ones are first
+    # order comics so that newly added ones are first
 		@comics = Comic.all.order("id desc")
 		render 'index'
 	end
